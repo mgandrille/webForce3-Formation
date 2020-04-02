@@ -1,0 +1,11 @@
+body {
+    color: grey;
+}
+
+.pink {
+    color: pink;
+}
+
+p span {
+    font-style: italic;
+}

@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lucida Console', serif;
+    overflow: auto;
+}
+
+#header {
+    width: 100%;
+    background-color: orangered;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+#main {
+    position: relative;
+    bottom: 0;
+}
+
+.help {
+    display: block;
+    background-color: lemonchiffon;
+    color: orangered;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.content {
+    text-align: center;
+    margin: auto;
+    width: 80vw;
+    padding-top: 50px;
+}
+

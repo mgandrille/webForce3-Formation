@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: midnightblue;
+    font-family: Helvetica, Arial, sans-serif
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#header {
+    min-width: 1000px;
+    margin: 0 auto;
+    /* background: red; */
+    overflow: auto;
+}
+
+#header div {
+    margin: 20px;
+    padding: 10px;
+    font-weight: bold;
+    width: calc(20% - 40px);
+    float: left;
+    border-radius: 10px 10px 10px 10px;
+    background: linear-gradient(to right, slateblue 0%, mistyrose 100%);
+    box-shadow: 10px 10px 14px 0px rgba(26,23,64,1);
+    text-align: center;
+}
+
+

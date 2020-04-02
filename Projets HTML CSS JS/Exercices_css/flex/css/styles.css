@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    min-height: 100vh;
+    background: midnightblue;
+    font-family: Helvetica, Arial, sans-serif; 
+}
+
+#header, #main, #footer {
+    min-width: 1000px;
+    margin: auto;
+    overflow: auto;
+}
+
+#header div {
+    float: left;
+    width: calc(20% - 40px);
+    margin: 20px;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(to right, slateblue 0%, mistyrose 100%);
+    box-shadow: 8px 6px 5px 2px rgb(26,23,64);
+}
+
+#main {
+    color: mistyrose;
+    float: left;
+    padding: 20px;
+}
+
+#popup, #popup div, #footer {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+
+/* POPUP */
+
+#popup {
+    height: 600px;
+    color: black;
+}
+
+#popup, #popup div {
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+#popup div {
+    background: mistyrose;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* FOOTER */
+
+#footer {
+    background: mistyrose;
+
+    -webkit-justify-content: space-evenly;
+    -ms-justify-content: space-evenly;
+    justify-content: space-evenly;
+
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+
+    border-radius: 20px 20px 0px 0px;
+}
+
+#footer div {
+    padding: 20px;
+}

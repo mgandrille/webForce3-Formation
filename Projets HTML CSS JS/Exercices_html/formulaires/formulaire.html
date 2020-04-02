@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Formulaires</title>
+    </head>
+
+    <body>
+        <form action="fichier.php" method="post">
+            <fieldset>
+                <legend>Inscription à une formation de cuisine :</legend>
+                <p>
+                    <label for="nom">Nom utilisateur : </label>
+                    <input type="text" name="nom" id="nom">
+                <br/>
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" name="password" id="password">   
+                <br/>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email" placeholder="(obligatoire)" required>                 
+                <br/>
+                    Sexe :
+                    <br/>
+                    <input type="radio" name="sexe" id="homme" value="homme">
+                    <label for="homme">Homme</label>
+                <br/>
+                    <input type="radio" name="sexe" id="femme" value="femme">
+                    <label for="femme">Femme</label>
+                <br/>
+                    <input type="radio" name="sexe" id="autre" value="autre">
+                    <label for="autre">Autre</label>
+                <br/>
+                    <label for="description">Description : </label> 
+                    <br/>
+                    <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                <br/>
+                    <input type="checkbox" name="conditions" id="conditions">
+                    <label for="conditions">Accepter <a href="conditions.html">les conditions</a></label>
+                <br/>
+                    <button type="submit">M'inscrire</button>
+<!-- possibilité d'utiliser un input type submit au lieu de la balise button (il n'y a pas de différence!)
+                    <input type="submit" value="M'inscrire">
+-->
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Essai suite formulaire</legend>
+                <p>
+                    <label for="birthday">Date d'anniversaire : </label>
+                    <input type="date" name="birthday" id="birthday">
+                <br/>
+                    <label for="phone">Numéro de téléphone : </label>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                </p>
+            </fieldset>
+
+
+        </form>
+    </body>
+</html>

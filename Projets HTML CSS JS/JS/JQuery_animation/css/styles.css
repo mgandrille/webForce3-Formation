@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+div {
+    width : 200px;
+    height : 200px;
+    float: left;
+    margin : 5px;
+}
+
+.rouge {
+    background: red;
+}
+
+.verte {
+    background: green;
+}

@@ -1,0 +1,29 @@
+*{
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.bloc {
+	float:left; 
+	width: calc(100% / 3);
+	padding: 20px;
+	background: grey;
+}
+
+.container {
+	float:left;
+	width: 100%;
+	background: red;
+	padding: 50px;
+}
+
+.slide {
+	float:left;
+	width: 100%;
+	background: blue;
+	padding: 50px;
+}

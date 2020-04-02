@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    min-height: 100vh;
+    background: midnightblue;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#header {
+    min-width: 1000px;
+    margin: auto;
+}
+
+#header div {
+    float: left;
+    width: calc(20% - 40px);
+    margin: 20px;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(to right, slateblue 0%, mistyrose 100%);
+    box-shadow: 8px 6px 5px 2px rgb(26,23,64);
+}

@@ -1,0 +1,20 @@
+body {
+    font-size: 100%;
+    font-family: Georgia, serif;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+.big {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.small {
+    line-height: 2em;
+    font-size: 0.5em;
+    text-transform: lowercase;
+    text-decoration: underline;
+}

@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    min-height: 100vh;
+    background: lavenderblush;
+    color: maroon;
+}
+
+p {
+    padding: 20px;
+    width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 960px) {
+    /* Petits écrans : mobile paysage */
+
+    body {
+        background: lightpink;
+    }
+}
+
+@media (min-width: 961px) {
+    /* Ecrans moyens : tablette paysage */
+
+    body {
+        background: indianred;
+        color: lavenderblush;
+
+        display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;  /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+        display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    }
+
+    p {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1280px) {
+    /* Ecrans larges : desktop */
+
+    body {
+        background: maroon;
+    }
+}
+

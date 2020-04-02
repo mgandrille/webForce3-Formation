@@ -1,0 +1,44 @@
+@-webkit-keyframes psychedelique {
+    from {
+        border-radius: 50%;
+        background-color: mediumspringgreen;
+    }
+    to {
+        border-radius: 0%;
+        background-color: midnightblue;  
+    }
+}
+
+@keyframes psychedelique {
+    from {
+        border-radius: 50%;
+        background-color: mediumspringgreen;
+    }
+    to {
+        border-radius: 0%;
+        background-color: midnightblue;  
+    }
+}
+
+
+body {
+    overflow: auto;
+}
+
+div {
+    float: left;
+    width: 20%;
+    min-height: 50vh;
+}
+
+.vert {
+    -webkit-animation: psychedelique 1s infinite alternate;
+    animation: psychedelique 1s infinite alternate;
+}
+
+.bleue {
+    -webkit-animation: psychedelique 1s infinite alternate-reverse;
+    animation: psychedelique 1s infinite alternate-reverse;
+}
+
+

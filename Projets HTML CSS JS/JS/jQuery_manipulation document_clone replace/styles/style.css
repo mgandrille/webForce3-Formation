@@ -1,0 +1,18 @@
+.bergerie {
+	padding: 50px;
+	float: left; 
+	width: 100%;
+}
+
+img {
+	width: 200px;
+	height: auto;
+}
+
+.mouton {
+	float:left;
+}
+
+.chat{
+	float: left;
+}

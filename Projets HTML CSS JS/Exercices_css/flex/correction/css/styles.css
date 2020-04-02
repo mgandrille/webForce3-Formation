@@ -1,0 +1,86 @@
+/* Règles générales  */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: midnightblue;
+    font-family: Helvetica, Arial, sans-serif
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#header, #main, #footer {
+    min-width: 1000px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#popup, #popup div, #footer {
+    display: -webkit-box;  
+    display: -ms-flexbox;  
+    display: -webkit-flex; 
+}
+
+/* Header  */
+
+#header div {
+    margin: 20px;
+    padding: 10px;
+    font-weight: bold;
+    width: calc(20% - 40px);
+    float: left;
+    border-radius: 10px 10px 10px 10px;
+    background: linear-gradient(to right, slateblue 0%, mistyrose 100%);
+    box-shadow: 10px 10px 14px 0px rgba(26,23,64,1);
+    text-align: center;
+}
+
+/* Popup  */
+
+#popup {
+    height: 600px;
+}
+
+#popup, #popup div {
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    -ms-justify-content: center;
+    -ms-align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup div {
+    background: mistyrose;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+/* Footer  */
+
+#footer {
+    -webkit-justify-content: space-evenly;
+    -webkit-flex-direction: row-reverse;
+    -ms-justify-content: space-evenly;
+    -ms-flex-direction: row-reverse;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+}
+
+#footer div{
+    background: mistyrose;
+    width: calc(100% / 3);
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+#footer :last-child {
+    border-top-left-radius: 20px;
+}
+
+#footer :first-child {
+    border-top-right-radius: 20px;
+}

@@ -1,0 +1,26 @@
+body {
+    overflow: auto;
+}
+
+div {
+    float: left;
+    width: 20%;
+    min-height: 50vh;
+    font-size: 3em;
+    text-align: center;
+}
+
+.droite {
+    float: right;
+}
+
+.vert {
+    background-color: mediumspringgreen;
+    color: midnightblue;
+}
+
+.bleue {
+    background-color: midnightblue;
+    color: mediumspringgreen;
+}
+

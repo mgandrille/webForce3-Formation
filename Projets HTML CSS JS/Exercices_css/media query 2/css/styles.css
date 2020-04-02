@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    width: 100%;
+    color: white;
+}
+
+header, footer, main, section {
+    width: 100%;
+    padding: 20px;
+    overflow: auto;
+
+}
+
+header, footer {
+    background: salmon;
+}
+
+main {
+    background: url("../img/petit.jpg") center / cover no-repeat;
+}
+
+section {
+    background: red;
+}
+
+section :nth-child(3), section :nth-child(4) {
+    display : none;
+}
+
+footer div {
+    float: left;
+    width: 50%;
+}
+
+/**** MEDIA QUERY *****/
+
+
+/* petites tailles (34em) */
+@media (min-width: 34em) {
+    header div, section div {
+        float: left;
+        width: 50%;
+    }
+}
+
+/* moyennes tailles (48em) */
+@media (min-width: 48em) {
+    main div {
+        float: left;
+        width: calc(100% / 3);
+    }
+
+    section :nth-child(3), section :nth-child(4) {
+        display : inherit;
+    }
+    }
+
+/* grandes tailles (62em) */
+@media (min-width: 62em) {
+    header div:first-of-type {
+        width: 25%;
+    }
+
+    header div:last-of-type {
+        width: 75%;
+    }
+
+    section div {
+        width: 25%;
+    }
+}
+
+/* très grandes tailles (75em) */
+@media (min-width: 48em) {
+    footer div {
+        width: 25%;
+    }
+}
+
+/* definition image par rapport au ratio de l'écran */
+@media (-webkit-min-device-pixel-ratio: 2) {
+    main {
+        background: url("../img/grand.jpg") center / cover no-repeat;
+    }
+}
+
+/* pour l'impression */
+@media print {
+    body {
+        color: black;
+    }
+
+    header, section, footer {
+        background: none;
+    }
+
+    main {
+        background: url("../img/impression.jpg") center / cover no-repeat;
+    }
+}

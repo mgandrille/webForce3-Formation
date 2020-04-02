@@ -1,0 +1,65 @@
+body,html {
+	margin:0; 
+	padding:0;
+	font-family: helvetica, sans-serif;
+	color: darkslategrey;
+	background:aliceblue;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.maison {
+	width: 100%;
+	height: auto;
+}
+
+h2 {
+	margin: 0;
+	padding: 20px;
+}
+
+.sdb {
+	float: left; 
+	width: calc(100% / 7);
+	text-align: center;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.maison > .sdb, .etage .sdb:last-child, .etage .sdb:nth-child(3) {
+	color: white;
+}
+
+.maison > .sdb { 
+	font-weight: bold;
+}
+
+h2 ~ .sdb {
+	background-color: lightsalmon;
+}
+
+h2 + .sdb {
+	background-color: cornflowerblue;
+}
+
+.etage .sdb:last-child {  
+	background-color: lightseagreen;
+}
+
+.etage .sdb:nth-child(3) {
+	background-color: deeppink;
+}
+
+
+
+
+
+
+

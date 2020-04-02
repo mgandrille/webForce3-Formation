@@ -1,0 +1,39 @@
+html {
+	margin:0; 
+}
+
+.topdepart {
+	width: 100px;
+	height:100px;
+	border-radius: 50%;
+	background: green;
+	margin-bottom: 50px;
+	border: 10px double white;
+	transition: background 2s;
+}
+
+.topdepart:hover {
+	background: red;
+}
+
+.barre-une, .barre-deux {
+	background: black;
+	margin-bottom: 20px;
+	height: 80px;
+	width: 80px;
+}
+
+.barre-une {
+    background: url("../img/tortue.jpg") top right / auto 100% no-repeat;
+	transition: width 2s ease-in;
+}
+.barre-deux {
+    background: url("../img/lievre.jpg") top right / auto 100% no-repeat;
+	transition: width 2s ease-out;
+}
+
+main:hover .barre-une, main:hover .barre-deux {
+	width: 50%;
+}
+
+

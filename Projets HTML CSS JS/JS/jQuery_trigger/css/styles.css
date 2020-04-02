@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    display: flex;
+}
+
+div {
+    width: calc(100% / 3);
+    height: 500px;
+    background: black;
+}

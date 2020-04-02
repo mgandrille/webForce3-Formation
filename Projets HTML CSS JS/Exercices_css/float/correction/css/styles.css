@@ -1,0 +1,25 @@
+body {
+    font-size: 100%;
+}
+
+div {
+    font-size: 2em;
+    text-align: center;
+    width: 20%;
+    min-height: 50vh;
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.verte {
+    background: mediumspringgreen;
+    color: midnightblue;
+}
+
+.bleue {
+    background: midnightblue;
+    color: mediumspringgreen;
+}

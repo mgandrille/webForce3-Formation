@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+div {
+    float: left;
+    background-image: url("../img/jardin.jpg");
+    width: 300px;
+    height: 300px;
+    text-align: center; 
+}
+
+p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: yellowgreen;
+    font-weight: bold;
+    text-decoration: underline yellowgreen;
+    margin: 10px 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px dotted yellow;
+}
+
+h2 {
+    font-family: Helvetica, sans-serif;
+    color: white;
+}
+
+.voisin {
+    padding: 30px;
+    border: 20px solid goldenrod;
+}
+
+.monjardin {
+    margin: 20px 20px 0px 0px;
+    border: 10px double goldenrod;
+    border-left : 0px;
+}

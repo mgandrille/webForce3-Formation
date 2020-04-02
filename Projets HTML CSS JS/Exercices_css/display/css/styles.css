@@ -1,0 +1,30 @@
+div, p, h1, ul, li {
+    display: inline;  
+}
+
+div {
+    background-color: yellow;
+}
+
+p {
+    background-color: darkviolet;
+}
+
+span {
+    color: white;
+    background-color: darkgreen;
+}
+
+h1 {
+    background-color: darkorange;
+}
+
+ul {
+    padding: 0;
+    color: lightslategrey;
+    background-color: darkblue;
+}
+
+li {
+    background-color: cyan;
+}

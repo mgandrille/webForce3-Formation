@@ -1,0 +1,6 @@
+body {
+    margin: 0%;
+    min-width: 100vh;
+    background-color: #5eade6;
+    background-image: url("../img/nuages.png"), url("../img/plage.jpg");
+}

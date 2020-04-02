@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    margin: 0%;
+    height: 100vh;
+    background: black;
+
+    display: flex;  /* bien mettre les attributs */
+    justify-content: center;   /* bien mettre les attributs */
+    align-items: center;   /* bien mettre les attributs */
+}
+
+.parent {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background: white;
+    border-radius: 50%;
+}

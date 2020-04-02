@@ -1,0 +1,111 @@
+/* Règles générales  */
+
+body {
+    margin: 0;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header, footer, section, main {
+    overflow: auto;
+}
+
+div {
+    float: left;
+}
+
+header div, main div, section div {
+    width: 100%;
+}
+
+header, footer {
+    background: salmon;
+}
+
+main {
+    background: url("../img/petit.jpg") center / cover no-repeat;
+}
+
+main div {
+    padding-bottom: 100px;
+}
+
+section {
+    background: red;
+}
+
+
+section :nth-child(3), section :nth-child(4){
+    display: none;
+}
+
+footer div {
+    width: 50%;
+}
+
+/* Media Queries */
+
+
+@media (min-width: 34em) {
+    header div, section div {
+        width: 50%;
+    }
+}
+
+@media (min-width: 48em) {
+    main div {
+        width: calc(100% / 3);
+    }
+}
+
+@media (min-width: 62em) {
+    header :first-child {
+        width: 25%;
+    }
+    header :last-child {
+        width: 75%;
+    }
+    section :nth-child(3), section :nth-child(4){ 
+        display: block;
+    }
+    section div {
+        width: 25%;
+    }
+
+}
+
+@media (min-width: 75em) {
+    footer div {
+        width: 25%;
+    }
+}  
+
+
+/* Ratio Pixel */
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    main {
+        background: url("../img/grand.jpg") center / cover no-repeat;
+    }
+}
+
+/* Impressions */
+
+@media print {
+
+    body {
+        color: black;
+    }
+
+    header, footer, section {
+        background: white;
+    }
+
+}
+
+
+
+

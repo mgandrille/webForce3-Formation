@@ -1,0 +1,40 @@
+body,html {
+	margin:0; 
+}
+
+
+div {
+	width: 20%;
+	height: 50vh;
+	float:left;
+}
+
+@-webkit-keyframes psychedelique {
+	from {
+		background: midnightblue;
+		border-radius 0%;
+	}to {
+		background: mediumspringgreen;
+		border-radius 50%;
+	}
+}
+
+@keyframes psychedelique {
+	from {
+		background: midnightblue;
+		border-radius: 0%;
+	}to {
+		background: mediumspringgreen;
+		border-radius: 50%;
+	}
+}
+
+body :nth-child(odd){
+	-webkit-animation: psychedelique 1s infinite alternate;
+	animation: psychedelique 1s infinite alternate;
+}
+
+body :nth-child(even){
+	-webkit-animation: psychedelique 1s infinite alternate-reverse;
+	animation: psychedelique 1s infinite alternate-reverse;
+}

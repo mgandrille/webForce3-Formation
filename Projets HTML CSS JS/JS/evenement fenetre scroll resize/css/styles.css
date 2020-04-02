@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+}
+
+.parent {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    right: -100px;
+    transition: right 0.5s;
+}
+

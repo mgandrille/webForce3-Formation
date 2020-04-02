@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+}
+
+div {
+    float: left;
+    width: calc(100% / 3 - 40px);
+    background-color: coral;
+    color: beige;
+    text-align: center;
+    margin: 0 20px;
+    padding: 5px;
+    border: 3px solid red;
+}
