@@ -11,8 +11,9 @@ import { HEROES } from '../mock-heroes'
 export class HeroesComponent implements OnInit {
 
   isActivated:boolean = false;
-
   heroes: HeroDef[] = HEROES;
+  selectedHero: HeroDef;
+  isHire: boolean = false;
 
   constructor() { }
 
@@ -21,11 +22,21 @@ export class HeroesComponent implements OnInit {
 
   onNameClick (clikedHero: HeroDef) {
     console.log(`Le héros ${clikedHero.name} a été sélectionné`);
+    this.selectedHero = clikedHero;
+  }
+
+  onActif () {
+    console.log('Activer les héros...');
+    this.isActivated = !this.isActivated;
   }
 
   onHire () {
-    console.log('On Embauche !');
-    this.isActivated = !this.isActivated;
+    this.isHire = !this.isHire;
+    if (this.isHire === true) {
+      console.log('On Embauche !');
+    } else {
+      console.log('On Vire !');
+    }
   }
 
 }
