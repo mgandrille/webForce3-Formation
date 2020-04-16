@@ -24,7 +24,9 @@ WebForce3-Formation
 
 - PHP
 
+[Lien vers projets](https://github.com/mgandrille/WebForce3---Cours-PHP)
 
+---
 Création du portfolio
 
 [Lien vers portfolio](https://github.com/mgandrille/Portfolio)
