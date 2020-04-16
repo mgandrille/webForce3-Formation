@@ -1,0 +1,40 @@
+/*
+Theme Name: WF3Theme
+Theme URI: https://wordpress.org/themes/wf3theme/
+Author: Marie
+Author URI: http://bgmp.fr
+Description: Nouveau thème Wordpress !
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wf3theme
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+*/
+
+/* stylelint-disable selector-list-comma-newline-after */
+
+/* stylelint-disable selector-list-comma-newline-after */
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+h1, h2, h3 {
+    color: red;
+}
+
+.widget > ul {
+    padding: 0;
+    list-style-type: none;
+}
