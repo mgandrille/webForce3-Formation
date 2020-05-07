@@ -24,13 +24,13 @@ register_uninstall_hook(__FILE__, 'uninstalHook');
 function pluginPerso_addmenu() {
     error_log("ajout du menu...");
     add_menu_page(
-        'plugingPerso admin',
-        'Mon Plugin',
-        'manage_options',
-        plugin_dir_path(__FILE__) . 'admin/pluginAdmin.php',
-        null,
-        'dashicons-admin-tools',
-        20
+        'plugingPerso admin',  // titre de la page (ne s'affiche pas forcément)
+        'Mon Plugin',  // nom dans menu (label)
+        'manage_options',  // s'affiche que pour le rôle désigné ici (associé aux utilisateurs)
+        plugin_dir_path(__FILE__) . 'admin/pluginAdmin.php',  // chemin vers la page appelée
+        null,  // option
+        'dashicons-plamtree', //icone
+        20  // potitionnement dans le menu
     );
 }
 
