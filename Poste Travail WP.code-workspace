@@ -1,10 +1,12 @@
 {
 	"folders": [
 		{
-			"path": "..\\..\\..\\..\\..\\..\\..\\..\\MAMP\\htdocs\\Wordpress"
+			"name": "WordPress_Plugin",
+			"path": "WordPress_Plugin"
 		},
 		{
-			"path": "WordPress_Plugin"
+			"name": "Wordpress",
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\MAMP\\htdocs\\Wordpress"
 		}
 	],
 	"settings": {}
