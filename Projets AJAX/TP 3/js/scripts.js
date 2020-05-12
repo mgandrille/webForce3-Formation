@@ -5,9 +5,9 @@ jQuery(document).ready(function($) {
         $("#ajaxButton").on("click", function () {
             let codePostal = $("#codePostal").val();
             $.get(`https://geo.api.gouv.fr/communes?codePostal=${codePostal}`, function (villes) {
-                // console.log(villes);
+                console.log(villes);
 
-                if(Date.lenght != 0) {
+                if(villes.lenght != 0) {
                     $('#resultat').replaceWith('<div id="resultat"> </div>')
                     $('<ul id="listeVilles">').appendTo('#resultat');
                     $.each(villes, (i, ville) =>{
@@ -21,6 +21,9 @@ jQuery(document).ready(function($) {
                 }
 
             });
+
+            event.preventDefault();
+
         });  
     }) ();
 
