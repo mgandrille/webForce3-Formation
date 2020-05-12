@@ -1,0 +1,57 @@
+<!--------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------- TP 2 AJAX en JavaScript avec jQuery ------------------------------------>
+<!------------- Cette fois-ci utilisons jQuery pour effectuer la requête AJAX, c'est plus simple ! -------------->
+<!--- Au lieu d'afficher le premier résultat de la requête (la première ville trouvée), on les affiche tous ----->
+<!--------------------------------------------------------------------------------------------------------------->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="fr" />
+    <meta name="author" content="Nicolas AMINI-LAMY" />
+    <title>
+        TP 2 - AJAX en jQuery
+    </title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <form id="formulaireRechercheVille">
+        <label for="codePostal">Code postal :</label>
+        <input type="number" id="codePostal" name="codePostal" required>
+        <button id="ajaxButton" type="submit">Rechercher</button>
+    </form>
+
+    <script>
+        $(function () {
+            $("#formulaireRechercheVille").on('submit', function (event) {
+                let codePostalRecherche = $('#codePostal').val();
+                $.get('https://geo.api.gouv.fr/communes?codePostal=' + codePostalRecherche, function (
+                    data) {
+                    if (data.length != 0) {
+
+                        let tableauVilles = [];
+                        for (let i = 0; i < data.length; i++) {
+                            tableauVilles.push(data[i].nom);
+                        }
+                        alert(tableauVilles);
+
+                        //Autre option : utilisation de la fonction javascript "map"
+                        // alert(data.map(ville => ville.nom));
+
+                    } else {
+                        alert('Pas de résultat');
+                    }
+                });
+
+                event.preventDefault();
+
+            });
+        });
+    </script>
+</body>
+
+</html>
