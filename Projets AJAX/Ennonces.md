@@ -21,7 +21,7 @@ Affichons les résultats de la requête dans le DOM plutôt que dans une alerte
 
 # TP 4 AJAX en JavaScript avec jQuery 
 
-Affichons une image de chargement pour prévenir l'utilisateur lorsqu'une requête est en cours 
+Affichons un spinner de chargement pour prévenir l'utilisateur lorsqu'une requête est en cours 
 
 Afficher le nombre de villes trouvées 
 
