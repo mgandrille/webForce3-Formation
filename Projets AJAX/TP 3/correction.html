@@ -1,0 +1,64 @@
+<!--------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------- TP 3 AJAX en JavaScript avec jQuery ------------------------------------>
+<!---------------- Affichons les résultats de la requête dans le DOM plutôt que dans une alerte ----------------->
+<!--------------------------------------------------------------------------------------------------------------->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="fr" />
+    <meta name="author" content="Nicolas AMINI-LAMY" />
+    <title>
+        TP 3 - AJAX en JavaScript avec jQuery
+    </title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <form id="formulaireRechercheVille">
+        <label for="codePostal">Code postal :</label>
+        <input type="number" id="codePostal" name="codePostal" required>
+        <button id="ajaxButton" type="submit">Rechercher</button>
+    </form>
+
+    <div>
+        <ul id="villes"></ul>
+    </div>
+
+    <script>
+        $(function () {
+            $("#formulaireRechercheVille").on('submit', function (event) {
+                event.preventDefault();
+
+                let codePostalRecherche = $('#codePostal').val();
+                clearVilles();
+                $.get('https://geo.api.gouv.fr/communes?codePostal=' + codePostalRecherche, function (
+                    data) {
+                    if (data.length != 0) {
+                        for (let i = 0; i < data.length; i++) {
+                            addVille(data[i]);
+                        }
+                    } else {
+                        alert('Pas de résultat');
+                    }
+                });
+            });
+
+            function clearVilles() {
+                $("#villes").empty();
+            }
+
+            function addVille(ville) {
+                $("#villes").append(`<li>${ville.nom}</li>`);
+
+                //équivalent à 
+                //$("#villes").append("<li>" + ville.nom + "</li>");
+            };
+        });
+    </script>
+</body>
+
+</html>
