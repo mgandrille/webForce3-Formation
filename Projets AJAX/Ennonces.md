@@ -31,3 +31,10 @@ Afficher une erreur en cas d'erreur AJAX
 # TP 5 AJAX en JavaScript avec jQuery 
 
 Empêcher l'utilisateur de valider une nouvelle recherche tant que la précédente n'a pas abouti
+
+# TP 6 : GET ALL - Back end de statistiques
+
+Récupérer les données suivantes : 
+Url : https://stats.naminilamy.fr
+
+et les insérer dans un CRUD
