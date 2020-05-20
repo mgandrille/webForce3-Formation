@@ -1,4 +1,5 @@
 Here you can find all the projects I made during my training course at Web Force 3 (march - june 2020)
+
 *Vous trouverez ci-dessous tous mes projets effectués lors de ma formation chez Web Force 3 (de mars à juin 2020)*
 
 ---
@@ -22,6 +23,7 @@ Here you can find all the projects I made during my training course at Web Force
 # Portfolio
 
 During this training course, I also made my portfolio :
+
 *Pendant la formation, j'ai aussi créé mon portfolio :*
 
 [Lien vers portfolio](https://github.com/mgandrille/Portfolio)
