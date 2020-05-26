@@ -15,15 +15,25 @@ jQuery(document).ready(function($) {
                     if(data.length != 0) {
                         $.each(data, (i, d) => {
                             console.log(d);
+                            $('#affichage').append(`
+                                <div class="card-header">Donnée # ${i}</div>
+                                </div>
+                                `);
                             $.each(d, (i, e) => {
                                 console.log(`${i} = ${e}`);
-                            })
+                                $('#affichage').append(`
+                                    <p class="card-text ml-3">${i} = ${e}</p>
+                                `);
+                            });
+                            $('#affichage').append(`
+                            </div>
+                            `);
+
                         });
                     } else {
-                        alert('loupé !');
+                        $('#affichage').replaceWith('<div id="affichage"><p>Pas de résultat trouvé ! </p></div>')
                     }
-
-    
+            
                     $('#loading').addClass('d-none');
     
                 })
