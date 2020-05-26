@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticlesController extends AbstractController {
 
     /**
-    * @Route("/articles", name="index")
+    * @Route("/articles", name="articles")
     */
-    public function index() {
+    public function articles() {
 
         return $this->render('/articles/index.html.twig');
     }
