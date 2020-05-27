@@ -1,0 +1,20 @@
+{# templates/articles/create.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %} Blog - Articles {% endblock %}
+
+{% block body %}
+
+    <h1> Page de création d'un article</h1>
+
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="article">Rédigez votre Article ici </label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="article" id="article" rows="3"></textarea>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
