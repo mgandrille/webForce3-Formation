@@ -1,6 +1,9 @@
 <?php
 namespace App\Controller;
+
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 /**
  * On préfixe toutes les routes du controller par "/articles"
@@ -13,19 +16,12 @@ class ArticleController extends AbstractController {
      * @Route("/", name="article_index", methods={"GET"})
      */
     public function index() {
-        
-        return $this->render('/article/index.html.twig');
+        $articleRepository = $this->getDoctrine()->getRepository(Article::class);
+        $articles = $articleRepository->findAll();
 
-    }
-
-    /**
-     * Afficher un article
-     * 
-     * @Route("/{article}", name="article_show", methods={"GET"})
-     */
-    public function show(int $article) {
-
-        return $this->render('/article/show.html.twig', compact('article'));
+        return $this->render('/article/index.html.twig', [
+            'articles' => $articles
+        ]);
 
     }
 
@@ -44,7 +40,32 @@ class ArticleController extends AbstractController {
      * 
      * @Route("/", name="article_new", methods={"POST"})
      */
-    public function new() {
+    public function new(Request $request) {
+        $article = new Article();
+        $article->setTitle($_POST['title']);
+        $article->setContent($_POST['content']);
+        $article->setShortContent($_POST['short_content']);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($article);
+        $em->flush();
+
+        return $this->redirectToRoute('article_index');
         
     }
+
+    
+    /**
+     * Afficher un article
+     * 
+     * @Route("/{article}", name="article_show", requirements={"articleId"="\d+"}, methods={"GET"})
+     */
+    public function show(int $article) {
+        $articleRepository = $this->getDoctrine()->getRepository(Article::class);
+        $article = $articleRepository->find($article);
+
+        return $this->render('/article/show.html.twig', compact('article'));
+
+    }
+
 }

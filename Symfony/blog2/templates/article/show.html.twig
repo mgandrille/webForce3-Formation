@@ -1,13 +1,13 @@
-{# templates/articles/view.html.twig #}
+{# templates/article/show.html.twig #}
 
 {% extends "base.html.twig" %}
 
-{% block title %} Blog - Article {{ articleId }} {% endblock %}
+{% block title %} Blog - Article {{ article.id }} {% endblock %}
 
 {% block body %}
 
-    <h1> Article #{{ articleId }} </h1>
+    <h1> {{ article.title }} </h1>
 
-    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, doloribus labore accusantium atque culpa temporibus. Magni, doloremque eligendi! Cum vel animi non enim ullam aliquam quae qui laudantium debitis doloremque. </p>
+    <p> {{ article.content}} </p>
 
 {% endblock %}

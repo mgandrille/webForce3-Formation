@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,13 +14,13 @@ class AppController extends AbstractController {
     /**
     * @Route("/", name="home")
     */
-    public function home() {
+    public function home(ArticleRepository $articleRepository) {
+        $articles = $articleRepository->findLastFive();
 
-        // $response = new Response( '<h1> Hello World ! </h1>' );
-        // dd($response);
-        // return $response;
 
-        return $this->render('/app/home.html.twig');
+        return $this->render('/app/home.html.twig', [
+            'articles' => $articles
+        ]);
 
     }
 

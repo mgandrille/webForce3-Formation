@@ -8,6 +8,14 @@
 
     <h1> Page de tous les articles</h1>
 
-    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, doloribus labore accusantium atque culpa temporibus. Magni, doloremque eligendi! Cum vel animi non enim ullam aliquam quae qui laudantium debitis doloremque. </p>
+        {% for article in articles %}
+            <div class="card border-danger mb-3">
+            <h5 class="card-header"> {{ article.title }} </h5>
+            <div class="card-body">
+                <p class="card-text">{{ article.short_content }}</p>
+                <a href="{{ path('article_show') }}" class="btn btn-outline-danger">Lire</a>
+            </div>
+            </div>
+        {% endfor %}
 
 {% endblock %}

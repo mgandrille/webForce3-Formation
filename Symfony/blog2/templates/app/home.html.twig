@@ -8,15 +8,10 @@
 
     <h1> Page d'accueil</h1>
 
-    <h2>Article #1</h2>
-    <h2>Article #2</h2>
-    <h2>Article #3</h2>
-    <h2>Article #4</h2>
-    <h2>Article #5</h2>
-    <h2>Article #6</h2>
-    <h2>Article #7</h2>
-    <h2>Article #8</h2>
-    <h2>Article #9</h2>
-    <h2>Article #10</h2>
+    <ul>
+        {% for article in articles %}
+            <li> {{ article.title }} [ <a href="{{ path('article_show', { article: article.id })}}">Lire</a> ] </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
