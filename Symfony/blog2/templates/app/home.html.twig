@@ -7,11 +7,18 @@
 {% block body %}
 
     <h1> Page d'accueil</h1>
-
-    <ul>
-        {% for article in articles %}
-            <li> {{ article.title }} [ <a href="{{ path('article_show', { article: article.id })}}">Lire</a> ] </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="row">
+            {% for article in articles %}
+                <div class="card border-danger mx-2 my-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.shortContent }}</p>
+                        <a href="{{ path('article_show', { article: article.id })}}" class="card-link text-danger">Lire</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}
