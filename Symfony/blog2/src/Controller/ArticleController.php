@@ -78,7 +78,7 @@ class ArticleController extends AbstractController {
     /**
      * Modifier un article
      * 
-     * @Route("/{article}/edit", name="article_edit", methods={"POST"})
+     * @Route("/{article}/edit", name="article_edit", methods={"GET"})
      */
     public function edit(Article $article) {
         return $this->render('/article/create.html.twig', [
@@ -107,7 +107,7 @@ class ArticleController extends AbstractController {
     /**
      * Supprimer un article
      * 
-     * @Route("/{article}/delete", name="article_delete", methods={"POST"})
+     * @Route("/{article}/delete", name="article_delete", methods={"GET"})
      */
     public function delete(Request $request, Article $article)
     {
@@ -124,11 +124,10 @@ class ArticleController extends AbstractController {
      * 
      * @Route("/{article}", name="article_show", requirements={"article"="\d+"}, methods={"GET"})
      */
-    public function show(int $article) {
-        $articleRepository = $this->getDoctrine()->getRepository(Article::class);
-        $article = $articleRepository->find($article);
-
-        return $this->render('/article/show.html.twig', compact('article'));
+    public function show(Article $article) {
+        return $this->render('/article/show.html.twig', [
+            "article" => $article
+        ]);
 
     }
 

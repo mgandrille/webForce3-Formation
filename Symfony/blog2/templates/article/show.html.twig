@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <h1> {{ article.title }} </h1>
         <p> {{ article.content}} </p>
-        <a href="{{ path('article_edit', {id: article.id}) }}" class="btn btn-outline-danger">Modifier</a>
+        <a href="{{ path('article_edit', {article: article.id}) }}" class="btn btn-outline-danger">Modifier</a>
     </div>
 
 {% endblock %}
