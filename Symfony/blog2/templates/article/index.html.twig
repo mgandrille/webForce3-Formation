@@ -12,11 +12,12 @@
         <div class="container">
             {% for article in articles %}
                 <div class="card border-light mb-3">
-                <h5 class="card-header text-white bg-danger"> {{ article.title }} </h5>
-                <div class="card-body">
-                    <p class="card-text">{{ article.shortContent }}</p>
-                    <a href="{{ path('article_show', {article: article.id}) }}" class="btn btn-outline-danger">Lire</a>
-                </div>
+                    <h5 class="card-header text-white bg-danger"> {{ article.title }} </h5>
+                    <p>Créé le {{ article.createdAt | date("d/m/Y", "Europe/Paris")}} </p>
+                    <div class="card-body">
+                        <p class="card-text">{{ article.shortContent }}</p>
+                        <a href="{{ path('article_show', {article: article.id}) }}" class="btn btn-outline-danger">Lire</a>
+                    </div>
                 </div>
             {% endfor %}
         </div>

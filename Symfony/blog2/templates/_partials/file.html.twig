@@ -1,21 +1,24 @@
 {# templates/_partials/file.html.twig #}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-    <a class="navbar-brand" href="{{ path('home') }}">Blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="{{ path('home') }}">Symfony Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    
-    <div class="collapse navbar-collapse" id="navbar">
-        <div class="col-7 navbar-nav">
-            <a class="nav-item nav-link active" href=" {{ path('article_index') }} ">Tous les articles <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href=" {{ path('article_create') }} ">Créer un article</a>
-        </div>
-        <div class="col-5 mx-auto">
-            <form class="form-inline my-2 my-lg-0" action="{{ path('article_search') }}" methode="get">
-                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Rechercher" aria-label="Search">
-                <input class="btn btn-outline-light my-2 my-sm-0" type="submit" value="Rechercher">
-            </form>
-        </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('article_index') }}"> Tous les articles <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('article_create') }}"> Créer un Article </a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Votre recherche" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
     </div>
 </nav>
