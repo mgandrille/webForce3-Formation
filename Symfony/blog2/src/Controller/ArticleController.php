@@ -105,6 +105,21 @@ class ArticleController extends AbstractController {
     }
 
     /**
+     * Supprimer un article
+     * 
+     * @Route("/{article}/delete", name="article_delete", methods={"POST"})
+     */
+    public function delete(Request $request, Article $article)
+    {
+
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($article);
+        $manager->flush();
+
+        return $this->redirectToRoute("article_index");
+    }
+
+    /**
      * Afficher un article
      * 
      * @Route("/{article}", name="article_show", requirements={"article"="\d+"}, methods={"GET"})
