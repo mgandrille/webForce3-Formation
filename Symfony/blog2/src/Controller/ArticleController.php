@@ -46,9 +46,9 @@ class ArticleController extends AbstractController {
      */
     public function new(Request $request) {
         $article = new Article();
-        $article->setTitle($_POST['title']);
-        $article->setContent($_POST['content']);
-        $article->setShortContent($_POST['short_content']);
+        $article->setTitle($request->request->get('title'));
+        $article->setContent($request->request->get('content'));
+        $article->setShortContent($request->request->get('short_content'));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($article);
@@ -76,9 +76,38 @@ class ArticleController extends AbstractController {
     }
 
     /**
+     * Modifier un article
+     * 
+     * @Route("/{article}/edit", name="article_edit", methods={"POST"})
+     */
+    public function edit(Article $article) {
+        return $this->render('/article/create.html.twig', [
+            "article" => $article
+        ]);
+    }
+
+    /**
+     * Traiter la modification d'un article
+     * 
+     * @Route("/{article}/edit", name="article_update", methods={"POST"})
+     */
+    public function update(Request $request, Article $article) {
+
+        $article->setTitle($request->request->get('title'));
+        $article->setContent($request->request->get('content'));
+        $article->setShortContent($request->request->get('short_content'));
+
+        $manager = $this->getDoctrine()->getManager();
+        $manager->flush();
+
+        return $this->redirectToRoute("article_index");
+
+    }
+
+    /**
      * Afficher un article
      * 
-     * @Route("/{article}", name="article_show", requirements={"articleId"="\d+"}, methods={"GET"})
+     * @Route("/{article}", name="article_show", requirements={"article"="\d+"}, methods={"GET"})
      */
     public function show(int $article) {
         $articleRepository = $this->getDoctrine()->getRepository(Article::class);
@@ -87,7 +116,6 @@ class ArticleController extends AbstractController {
         return $this->render('/article/show.html.twig', compact('article'));
 
     }
-
 
 
 }
