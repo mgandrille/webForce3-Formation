@@ -17,7 +17,6 @@ class AppController extends AbstractController {
     public function home(ArticleRepository $articleRepository) {
         $articles = $articleRepository->findLastFive();
 
-
         return $this->render('/app/home.html.twig', [
             'articles' => $articles
         ]);

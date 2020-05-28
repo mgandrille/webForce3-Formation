@@ -6,16 +6,20 @@
 
 {% block body %}
 
-    <h1> Page de tous les articles</h1>
+    <div class="container-fluid">
+        <h1> Liste des articles</h1>
 
-        {% for article in articles %}
-            <div class="card border-danger mb-3">
-            <h5 class="card-header"> {{ article.title }} </h5>
-            <div class="card-body">
-                <p class="card-text">{{ article.content }}</p>
-                <a href="{{ path('article_show', {article: article.id}) }}" class="btn btn-outline-danger">Lire</a>
-            </div>
-            </div>
-        {% endfor %}
+        <div class="container">
+            {% for article in articles %}
+                <div class="card border-light mb-3">
+                <h5 class="card-header text-white bg-danger"> {{ article.title }} </h5>
+                <div class="card-body">
+                    <p class="card-text">{{ article.shortContent }}</p>
+                    <a href="{{ path('article_show', {article: article.id}) }}" class="btn btn-outline-danger">Lire</a>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

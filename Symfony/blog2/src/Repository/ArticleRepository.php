@@ -60,5 +60,17 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findByString($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->orWhere('a.title LIKE :val')
+            ->orWhere('a.content LIKE :val')
+            ->orWhere('a.short_content LIKE :val')
+            ->setParameter('val', '%' . $value . '%')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 
 }

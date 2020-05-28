@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,6 +38,7 @@ class ArticleController extends AbstractController {
         return $this->render('/article/create.html.twig');
 
     }
+
     /**
      * Traiter le formulaire de création d'un article
      * 
@@ -56,7 +58,23 @@ class ArticleController extends AbstractController {
         
     }
 
-    
+    /**
+     * Afficher les résultats d'une recherche
+     * 
+     * @Route("/search/", name="article_search", methods={"GET"})
+     */
+    public function search(Request $request, ArticleRepository $articleRepository) 
+    {
+        $search= $request->query->get("search");
+        $recherche = $articleRepository->findByString($search);
+
+        // dd($recherche);
+        return $this->render('/article/index.html.twig', [
+            'articles' => $recherche
+        ]);
+
+    }
+
     /**
      * Afficher un article
      * 
@@ -69,5 +87,7 @@ class ArticleController extends AbstractController {
         return $this->render('/article/show.html.twig', compact('article'));
 
     }
+
+
 
 }

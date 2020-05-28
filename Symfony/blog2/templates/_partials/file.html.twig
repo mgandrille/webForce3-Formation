@@ -5,10 +5,17 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <div class="col-7 navbar-nav">
             <a class="nav-item nav-link active" href=" {{ path('article_index') }} ">Tous les articles <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href=" {{ path('article_create') }} ">Créer un article</a>
+        </div>
+        <div class="col-5 mx-auto">
+            <form class="form-inline my-2 my-lg-0" action="{{ path('article_search') }}" methode="get">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Rechercher" aria-label="Search">
+                <input class="btn btn-outline-light my-2 my-sm-0" type="submit" value="Rechercher">
+            </form>
         </div>
     </div>
 </nav>
