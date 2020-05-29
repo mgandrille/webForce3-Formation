@@ -60,14 +60,14 @@ class ArticleController extends AbstractController {
         
     // }
 
-    // CREATION AVEC LE FORMULAIRE AUTO GENERE
+    // CREATE AVEC LE FORMULAIRE AUTO GENERE
     /**
      * @Route("/new/", name="article_create", methods={"GET", "POST"})
      */
     public function new(Request $request): Response
     {
         // CAS GET (AFFICHAGE)
-        $article = new Article();
+        $article = new Article();        
         $form = $this->createForm(ArticleType::class, $article);
 
         // CAS POST (TRAITEMENT)
@@ -104,34 +104,58 @@ class ArticleController extends AbstractController {
 
     }
 
+    // /**
+    //  * Modifier un article
+    //  * 
+    //  * @Route("/{article}/edit", name="article_edit", methods={"GET"})
+    //  */
+    // public function edit(Article $article) {
+    //     return $this->render('/article/create.html.twig', [
+    //         "article" => $article
+    //     ]);
+    // }
+
+    // /**
+    //  * Traiter la modification d'un article
+    //  * 
+    //  * @Route("/{article}/edit", name="article_update", methods={"POST"})
+    //  */
+    // public function update(Request $request, Article $article) {
+
+    //     $article->setTitle($request->request->get('title'));
+    //     $article->setContent($request->request->get('content'));
+    //     $article->setShortContent($request->request->get('short_content'));
+
+    //     $manager = $this->getDoctrine()->getManager();
+    //     $manager->flush();
+
+    //     return $this->redirectToRoute("article_index");
+    // }
+
+
+    // UPDATE AVEC LE FORMULAIRE AUTO GENERE
     /**
-     * Modifier un article
-     * 
-     * @Route("/{article}/edit", name="article_edit", methods={"GET"})
+     * @Route("/{article}/edit", name="article_edit", methods={"GET", "POST"})
      */
-    public function edit(Article $article) {
-        return $this->render('/article/create.html.twig', [
-            "article" => $article
+    public function edit(Request $request, Article $article): Response
+    {
+        $form = $this->createForm(ArticleType::class, $article);
+
+        // CAS POST (Traitement)
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+            return $this->redirectToRoute('article_index');
+        }
+
+        // Affichage Formulaire
+        return $this->render('article/create.html.twig', [
+            'article' => $article,
+            'form' => $form->createView()
         ]);
     }
 
-    /**
-     * Traiter la modification d'un article
-     * 
-     * @Route("/{article}/edit", name="article_update", methods={"POST"})
-     */
-    public function update(Request $request, Article $article) {
-
-        $article->setTitle($request->request->get('title'));
-        $article->setContent($request->request->get('content'));
-        $article->setShortContent($request->request->get('short_content'));
-
-        $manager = $this->getDoctrine()->getManager();
-        $manager->flush();
-
-        return $this->redirectToRoute("article_index");
-
-    }
 
     /**
      * Supprimer un article
