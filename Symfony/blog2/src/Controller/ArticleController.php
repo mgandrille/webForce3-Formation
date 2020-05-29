@@ -2,9 +2,11 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 /**
  * On préfixe toutes les routes du controller par "/articles"
@@ -28,34 +30,61 @@ class ArticleController extends AbstractController {
 
     }
 
-    /**
-     * Afficher le formulaire de création d'un article
-     * 
-     * @Route("/create", name="article_create", methods={"GET"})
-     */
-    public function create() {
+    // /**
+    //  * Afficher le formulaire de création d'un article
+    //  * 
+    //  * @Route("/create", name="article_create", methods={"GET"})
+    //  */
+    // public function create() {
 
-        return $this->render('/article/create.html.twig');
+    //     return $this->render('/article/create.html.twig');
 
-    }
+    // }
 
-    /**
-     * Traiter le formulaire de création d'un article
-     * 
-     * @Route("/", name="article_new", methods={"POST"})
-     */
-    public function new(Request $request) {
-        $article = new Article();
-        $article->setTitle($request->request->get('title'));
-        $article->setContent($request->request->get('content'));
-        $article->setShortContent($request->request->get('short_content'));
+    // /**
+    //  * Traiter le formulaire de création d'un article
+    //  * 
+    //  * @Route("/", name="article_new", methods={"POST"})
+    //  */
+    // public function new(Request $request) {
+    //     $article = new Article();
+    //     $article->setTitle($request->request->get('title'));
+    //     $article->setContent($request->request->get('content'));
+    //     $article->setShortContent($request->request->get('short_content'));
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($article);
-        $em->flush();
+    //     $em = $this->getDoctrine()->getManager();
+    //     $em->persist($article);
+    //     $em->flush();
 
-        return $this->redirectToRoute('article_index');
+    //     return $this->redirectToRoute('article_index');
         
+    // }
+
+    // CREATION AVEC LE FORMULAIRE AUTO GENERE
+    /**
+     * @Route("/new/", name="article_create", methods={"GET", "POST"})
+     */
+    public function new(Request $request): Response
+    {
+        // CAS GET (AFFICHAGE)
+        $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
+
+        // CAS POST (TRAITEMENT)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+            return $this->redirectToRoute('article_index');
+        }
+
+        // CAS GET OU POST SI FORMULAIRE INVALIDE
+        // Affichage du formulaire
+        return $this->render('article/create.html.twig', [
+            'article' => $article,
+            'form' => $form->createView()
+        ]);
     }
 
     /**

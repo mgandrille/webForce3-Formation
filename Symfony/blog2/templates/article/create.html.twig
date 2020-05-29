@@ -10,7 +10,7 @@
     <h1> Page de création d'un article</h1>
 
     <div class="container">
-        {% if article is defined %}
+        {# {% if article is defined %}
             <form action="{{ path('article_update', { 'article': article.id }) }}" method="post">
         {% else %}
             <form action="{{ path('article_new') }}" method="post">
@@ -39,7 +39,13 @@
 
         <input type="submit" value="Enregistrer">
 
-        </form>
+        </form> #}
+    
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button>Créer</button>
+    {{ form_end(form) }}
+
     </div>
 </div>
 
