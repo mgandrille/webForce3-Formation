@@ -16,7 +16,7 @@
                 <a class="nav-link" href="{{ path('article_create') }}"> Créer un Article </a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" action="{{ path('article_search') }}" methode="get">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Votre recherche" aria-label="Search">
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
