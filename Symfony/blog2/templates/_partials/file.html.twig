@@ -15,6 +15,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('article_create') }}"> Créer un Article </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('category_index') }}"> Toutes les catégories <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('category_new') }}"> Créer une catégorie </a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="{{ path('article_search') }}" methode="get">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Votre recherche" aria-label="Search">
