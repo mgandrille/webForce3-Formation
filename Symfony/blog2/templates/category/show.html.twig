@@ -3,28 +3,36 @@
 {% block title %}Category{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+    <div class="container-fluid">
+        <a href="{{ path('category_index') }}" class="text-danger"><i class="fa fa-angle-double-left mr-1"></i>Retour à la liste</a>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ category.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ category.description }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <h1>Categorie : </h1>
 
-    <a href="{{ path('category_index') }}">back to list</a>
+        <div class="container">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ category.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ category.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ category.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
+        <div class="card text-center border-danger" style="width: 8rem;">
+            <div class="card-body">
+                <h6>Actions :</h6>
+                <a href="{{ path('category_edit', {'id': category.id}) }}" class="text-danger mx-1"><i class="fa fa-pencil"></i></a>
+                {{ include('category/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

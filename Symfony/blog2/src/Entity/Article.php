@@ -80,6 +80,18 @@ class Article
     {
         $this->content = $content;
 
+        /**
+         * Handle short content
+         */
+
+        $shortContent = $content;
+
+        if (strlen($content) > 147 ) {
+            $shortContent = substr($content, 0, 146) . '...';
+        }
+
+        $this->setShortContent($shortContent);
+
         return $this;
     }
 

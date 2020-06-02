@@ -45,7 +45,7 @@ class ArticleType extends AbstractType
                 'widget' => 'single_text',
                 'input_format' => 'datetime'
             ])
-            ->add('short_content')
+            // ->add('short_content')
             ->add('category', EntityType::class, [
                 'class' => Category::class, // Quelle classe est reliée au champ category
                 'choice_label' => 'title', // Quel champ de Category afficher dans le select
