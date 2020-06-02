@@ -7,7 +7,7 @@ use App\Entity\Category;
 use App\Entity\Tag;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,9 +21,9 @@ class ArticleType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre de votre article',
-                'data' => 'Titre par défaut',
                 'attr' => [
-                    'class' => 'form-control-sm form-red'
+                    'class' => 'form-control-sm form-red',
+                    'placeholder' => 'Titre par défaut'
                 ],
                 'constraints' => [
                     new Length([
@@ -36,10 +36,14 @@ class ArticleType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu de votre article',
-                'data' => 'Contenu par défaut'
+                'attr' => [
+                    'placeholder' => 'Contenu par défaut'
+                ]
             ])
-            ->add('created_at', DateType::class,  [
-                'widget' => 'single_text'
+            ->add('created_at', DateTimeType::class,  [
+                'label' => 'Date de création',
+                'widget' => 'single_text',
+                'input_format' => 'datetime'
             ])
             ->add('short_content')
             ->add('category', EntityType::class, [
