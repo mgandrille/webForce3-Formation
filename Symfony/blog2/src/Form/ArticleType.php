@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Tag;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -44,6 +45,11 @@ class ArticleType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => Category::class, // Quelle classe est reliée au champ category
                 'choice_label' => 'title', // Quel champ de Category afficher dans le select
+            ])
+            ->add('tags', EntityType::class, [
+                'class' => Tag::class,
+                'choice_label' => 'title',
+                'multiple' => true
             ])
         ;
     }
