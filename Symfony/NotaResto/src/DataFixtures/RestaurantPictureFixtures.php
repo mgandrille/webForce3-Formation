@@ -14,4 +14,12 @@ class RestaurantPictureFixtures extends Fixture
 
         $manager->flush();
     }
+
+    public function getDependencies() 
+    {
+        return array(
+            RestaurantFixtures::class,
+        );
+    }
+    
 }

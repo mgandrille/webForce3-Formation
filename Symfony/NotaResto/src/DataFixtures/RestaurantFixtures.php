@@ -14,4 +14,11 @@ class RestaurantFixtures extends Fixture
 
         $manager->flush();
     }
+
+    public function getDependencies() 
+    {
+        return array(
+            CityFixtures::class,
+        );
+    }
 }
