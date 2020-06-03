@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nota Resto{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <h1>Bienvenue sur Nota Resto</h1>
+    <p>Votre application pour noter les restaurants !</p>
+
+    <div class="row">
+        <div class="container">
+            <table class="table table-hover text-center">
+                <thead class="table-success text-secondary">
+                    <tr>
+                        <th scope='col'>#</th>
+                        <th scope='col'>Nom</th>
+                        <th scope='col'>Ville</th>
+                        <th scope='col'>Note</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for restaurant in restaurants %}
+                    <tr>
+                        <th scope="row" class="text-success">{{ restaurant.id }}</td>
+                        <td>{{ restaurant.name }}</td>
+                        <td>ville</td>
+                        <td>note</td>
+                        <td>{{ restaurant.description }}</td>
+                        <td>Image</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

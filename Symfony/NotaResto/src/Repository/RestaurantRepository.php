@@ -47,4 +47,18 @@ class RestaurantRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Restaurant[] Returns an array of Article objects
+     */
+    public function findLast($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.created_at', 'DESC')
+            ->setMaxResults($value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 }
