@@ -5,8 +5,15 @@
 {% block body %}
 
 <div class="container-fluid">
-    <h1>Bienvenue sur Nota Resto</h1>
-    <p>Votre application pour noter les restaurants !</p>
+    <div class="row">
+        <div class="container text-center my-3">
+            <h1 class="text-success">Bienvenue sur Nota Resto</h1>
+            <h5>Votre application pour noter les restaurants !</h5>
+        </div>
+        <div class="container">
+            <p>Liste des 10 derniers restaurants enregistrés dans l'application : </p>
+        </div>
+    </div>    
 
     <div class="row">
         <div class="container">
@@ -16,7 +23,7 @@
                         <th scope='col'>#</th>
                         <th scope='col'>Nom</th>
                         <th scope='col'>Ville</th>
-                        <th scope='col'>Note</th>
+                        <th scope='col'>Note Moyenne</th>
                         <th scope='col'>Description</th>
                         <th scope='col'>Photo</th>
                     </tr>
@@ -27,8 +34,8 @@
                         <th scope="row" class="text-success">{{ restaurant.id }}</td>
                         <td>{{ restaurant.name }}</td>
                         <td>ville</td>
-                        <td>note</td>
-                        <td>{{ restaurant.description }}</td>
+                        <td>{{ restaurant.averageRating | number_format(2, ',') }}</td>
+                        <td>{{ restaurant.description[:50] ~ '...' }}</td>
                         <td>Image</td>
                     </tr>
                 {% endfor %}
