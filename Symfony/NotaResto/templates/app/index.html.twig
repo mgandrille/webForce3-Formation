@@ -10,11 +10,35 @@
             <h1 class="text-success">Bienvenue sur Nota Resto</h1>
             <h5>Votre application pour noter les restaurants !</h5>
         </div>
-        <div class="container">
-            <p>Liste des 10 derniers restaurants enregistrés dans l'application : </p>
-        </div>
     </div>    
 
+    <div class="container">
+        <h4>Liste des 10 meilleurs restaurants : </h4>
+    </div>
+    <div class="row">
+        <div class="container">
+            <table class="table table-hover table-sm text-center">
+                <thead class="table-success text-secondary">
+                    <tr>
+                        <th scope='col'>Nom</th>
+                        <th scope='col'>Note Moyenne</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for topTenRestaurant in topTenRestaurants %}
+                    <tr>
+                        <td>{{ topTenRestaurant.name }}</td>
+                        <td>{{ topTenRestaurant.average | number_format(2, ',') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h4>Liste des 10 derniers restaurants enregistrés dans l'application : </h4>
+    </div>
     <div class="row">
         <div class="container">
             <table class="table table-hover text-center">

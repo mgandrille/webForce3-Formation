@@ -47,4 +47,20 @@ class ReviewRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Review[] Returns an array of Review objects
+     */
+    public function findBestTenRatings()
+    {
+        return $this->createQueryBuilder('r')
+            ->select('restaurant.name, avg(r.rating) as average')
+            ->innerJoin('r.restaurant', 'restaurant')
+            ->groupBy('restaurant')
+            ->orderBy('avg(r.rating)', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
