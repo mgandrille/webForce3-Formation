@@ -3,9 +3,10 @@
 namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class RestaurantPictureFixtures extends Fixture
+class RestaurantPictureFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -15,11 +16,11 @@ class RestaurantPictureFixtures extends Fixture
         $manager->flush();
     }
 
-    public function getDependencies() 
+    public function getDependencies()
     {
         return array(
             RestaurantFixtures::class,
         );
     }
-    
+
 }

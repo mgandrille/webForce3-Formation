@@ -6,10 +6,11 @@ use App\Entity\Review;
 use App\Repository\RestaurantRepository;
 use App\Repository\ReviewRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class ReviewFixtures extends Fixture
+class ReviewFixtures extends Fixture implements DependentFixtureInterface
 {
     private $restaurantRepository;
     private $reviewRepository;
@@ -37,7 +38,7 @@ class ReviewFixtures extends Fixture
         $manager->flush();
 
         /**
-         * On créée 3000 reviews enfants 
+         * On créée 3000 reviews enfants
          * (dont le parent est une des review initiales)
          */
         for ($i=0; $i<3000; $i++) {
@@ -52,7 +53,7 @@ class ReviewFixtures extends Fixture
         $manager->flush();
     }
 
-    public function getDependencies() 
+    public function getDependencies()
     {
         return array(
             RestaurantFixtures::class,

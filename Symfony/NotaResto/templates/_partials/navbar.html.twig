@@ -6,28 +6,57 @@
         + <i class="fa fa-cutlery"></i> )
     </a>
 
+    <div class="collapse navbar-collapse d-flex justify-content-between mr-5">
+        <ul class="navbar-nav pr-3">
+            <li class="nav-item ">
+                <a class="nav-link text-success" href="#">Utilisateurs</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-success" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Restaurants
+                </a>
+                <div class="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item text-secondary" href="#">Tous les restaurants</a>
+                    <a class="dropdown-item text-secondary" href="#">Mes restaurants</a>
+                    <a class="dropdown-item text-secondary" href="#">Ajouter un restaurant</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-success" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Recherche
+                </a>
+                <div class="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+
     <div class="collapse navbar-collapse d-flex justify-content-end mr-5">
         <ul class="navbar-nav pr-3">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {% if app.user %}
-                    Bienvenue  {{ app.user.email }} !
+                    Bienvenue <span class="text-success font-weight-bold">{{ app.user.email }}</span> !
                 {% else %}
                     Se connecter
                 {% endif %}
                 </a>
                 <div class="dropdown-menu mr-5" aria-labelledby="navbarDropdownMenuLink">
                     {% if app.user %}
-                        <a class="dropdown-item" href="{{ path('app_logout') }}">
+                        <a class="dropdown-item text-secondary" href="{{ path('app_logout') }}">
                             <i class="fa fa-sign-out"></i>
                             Déconnection
                         </a>
                     {% else %}
-                        <a class="dropdown-item" href="{{ path('app_login') }}">
+                        <a class="dropdown-item text-secondary" href="{{ path('app_login') }}">
                             <i class="fa fa-user"></i>
                             Connection
                         </a>
-                        <a class="dropdown-item" href="{{ path('app_register') }}">
+                        <a class="dropdown-item text-secondary" href="{{ path('app_register') }}">
                             <i class="fa fa-user-plus"></i>
                             Créer un compte
                         </a>
@@ -36,4 +65,5 @@
             </li>
         </ul>
     </div>
+
 </nav>
