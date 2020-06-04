@@ -1,39 +1,47 @@
-<!DOCTYPE html>
+{% extends 'base.html.twig' %}
 
-<title>Restaurant index</title>
+{% block title %}Restaurants{% endblock %}
 
 {% block body %}
-    <h1>Restaurant index</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="container text-center my-3">
+            <h1 class="text-success">Liste de tous les restaurants</h1>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Created_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for restaurant in restaurants %}
-            <tr>
-                <td>{{ restaurant.id }}</td>
-                <td>{{ restaurant.name }}</td>
-                <td>{{ restaurant.description }}</td>
-                <td>{{ restaurant.createdAt ? restaurant.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">show</a>
-                    <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="container">
+            <a class="btn btn-outline-success mb-3" href="{{ path('restaurant_new') }}">Créer un nouveau restaurant</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Ville</th>
+                        <th>Note moyenne (/5)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for restaurant in restaurants %}
+                    <tr>
+                        <td>{{ restaurant.id }}</td>
+                        <td>{{ restaurant.name }}</td>
+                        <td>{{ restaurant.city.name }}</td>
+                        <td>{{ restaurant.averageRating | round(1) }}</td>
+                        <td>
+                            <a class="text-success mx-2" href="{{ path('restaurant_show', {'id': restaurant.id}) }}"><i class="fa fa-search"></i></a>
+                            <a class="text-success mx-2" href="{{ path('restaurant_edit', {'id': restaurant.id}) }}"><i class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-    <a href="{{ path('restaurant_new') }}">Create new</a>
 {% endblock %}

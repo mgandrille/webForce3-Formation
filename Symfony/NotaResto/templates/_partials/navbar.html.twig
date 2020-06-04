@@ -9,16 +9,16 @@
     <div class="collapse navbar-collapse d-flex justify-content-between mr-5">
         <ul class="navbar-nav pr-3">
             <li class="nav-item ">
-                <a class="nav-link text-success" href="#">Utilisateurs</a>
+                <a class="nav-link text-success" href="{{ path('user_index') }}">Utilisateurs</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link text-success" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Restaurants
                 </a>
                 <div class="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-secondary" href="#">Tous les restaurants</a>
-                    <a class="dropdown-item text-secondary" href="#">Mes restaurants</a>
-                    <a class="dropdown-item text-secondary" href="#">Ajouter un restaurant</a>
+                    <a class="dropdown-item text-secondary" href="{{ path('restaurant_index') }}">Tous les restaurants</a>
+                    <a class="dropdown-item text-secondary" href="{{ path('restaurant_index') }}">Mes restaurants</a>
+                    <a class="dropdown-item text-secondary" href="{{ path('restaurant_new') }}">Ajouter un restaurant</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -27,8 +27,8 @@
                 </a>
                 <div class="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                     <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Code Postal" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
                     </form>
                 </div>
             </li>
