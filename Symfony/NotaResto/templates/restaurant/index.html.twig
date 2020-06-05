@@ -29,8 +29,8 @@
                         <td>{{ restaurant.city.name }}</td>
                         <td>{{ restaurant.averageRating | round(1) }}</td>
                         <td>
-                            <a class="text-success mx-2" href="{{ path('restaurant_show', {'id': restaurant.id}) }}"><i class="fa fa-search"></i></a>
-                            <a class="text-success mx-2" href="{{ path('restaurant_edit', {'id': restaurant.id}) }}"><i class="fa fa-edit"></i></a>
+                            <a class="text-success mx-2" href="{{ path('restaurant_show', {'restaurant': restaurant.id}) }}"><i class="fa fa-search"></i></a>
+                            <a class="text-success mx-2" href="{{ path('restaurant_edit', {'restaurant': restaurant.id}) }}"><i class="fa fa-edit"></i></a>
                         </td>
                     </tr>
                 {% else %}

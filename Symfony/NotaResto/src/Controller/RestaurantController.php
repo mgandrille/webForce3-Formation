@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Restaurant;
+use App\Entity\RestaurantPicture;
+use App\Form\RestaurantPictureType;
 use App\Form\RestaurantType;
 use App\Repository\RestaurantRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,17 +52,41 @@ class RestaurantController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="restaurant_show", methods={"GET"})
+     * @Route("/{restaurant}", name="restaurant_show", methods={"GET", "POST"})
      */
-    public function show(Restaurant $restaurant): Response
+    public function show(Request $request, Restaurant $restaurant, FileUploader $fileUploader): Response
     {
+        $picture = new RestaurantPicture();
+        $form = $this->createForm(RestaurantPictureType::class, $picture);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $file = $form['filename']->getData();
+
+            if($file) {
+                $filename = $fileUploader->upload($file);
+
+                $picture->setFilename($filename);
+                $picture->setRestaurant($restaurant);
+            }
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($picture);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('restaurant_show', ['restaurant' => $restaurant->getId()]);
+        }
+
         return $this->render('restaurant/show.html.twig', [
             'restaurant' => $restaurant,
+            'picture' => $picture,
+            'formPicture' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="restaurant_edit", methods={"GET","POST"})
+     * @Route("/{restaurant}/edit", name="restaurant_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Restaurant $restaurant): Response
     {

@@ -178,7 +178,7 @@ class Restaurant
         return $this;
     }
 
-    public function getAverageRating() : float
+    public function getAverageRating()
     {
         $sum = 0;
         $total = 0;

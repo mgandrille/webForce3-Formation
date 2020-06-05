@@ -2,13 +2,18 @@
 
 namespace App\Form;
 
+use App\Entity\City;
 use App\Entity\Restaurant;
+use App\Entity\RestaurantPicture;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class RestaurantType extends AbstractType
 {
@@ -26,13 +31,14 @@ class RestaurantType extends AbstractType
                 'widget' => 'single_text',
                 'input_format' => 'datetime'
             ])
-            ->add('city', CityType::class, [
-                'label' => 'Ville',
+            ->add('city', EntityType::class, [
+                'class' => City::class,
+                'choice_label' => 'name',
                 'row_attr' => [
                     'class' => 'text-success font-weight-bold',
                 ],
                 'attr' => [
-                    'class' => 'text-dark font-weight-normal'
+                    'class' => 'text-dark font-weight-normal restaurant-form-city'
                 ]
             ])
         ;
