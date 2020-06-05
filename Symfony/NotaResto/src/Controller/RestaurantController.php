@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Restaurant;
 use App\Entity\RestaurantPicture;
+use App\Entity\Review;
 use App\Form\RestaurantPictureType;
 use App\Form\RestaurantType;
+use App\Form\ReviewType;
 use App\Repository\RestaurantRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,32 +58,79 @@ class RestaurantController extends AbstractController
      */
     public function show(Request $request, Restaurant $restaurant, FileUploader $fileUploader): Response
     {
+        /**
+         * Gestion du formulaire Picture
+         */
         $picture = new RestaurantPicture();
-        $form = $this->createForm(RestaurantPictureType::class, $picture);
+        $formPicture = $this->createForm(RestaurantPictureType::class, $picture);
 
-        $form->handleRequest($request);
+        $formPicture->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['filename']->getData();
+        if ($formPicture->isSubmitted() && $formPicture->isValid()) {
 
-            if($file) {
+            $file = $formPicture['filename']->getData();
+            if ($file) {
+
                 $filename = $fileUploader->upload($file);
 
                 $picture->setFilename($filename);
+
+                // Le restaurant de l'image est le restaurant qui est affiché sur la page
                 $picture->setRestaurant($restaurant);
+
             }
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($picture);
             $entityManager->flush();
 
+            // On redirige vers la page du restaurant une fois l'image postée
+            return $this->redirectToRoute('restaurant_show', ['restaurant' => $restaurant->getId()]);
+        }
+        /**
+         * // Fin de gestion du formulaire Picture
+         */
+
+        /**
+         * Gestion du formulaire Review
+         */
+
+        $review = new Review();
+
+        $formReview = $this->createForm(ReviewType::class, $review);
+        $formReview->handleRequest($request);
+
+        if ($formReview->isSubmitted() && $formReview->isValid()) {
+            $review = $formReview->getData();
+
+            // Le User de la review est le User connecté
+            $review->setUser($this->getUser());
+
+            // Le restaurant de la review est le Restaurant qu'on affiche
+            $review->setRestaurant($restaurant);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($review);
+            $entityManager->flush();
+
+            // On redirige vers la page du restaurant une fois la review postée
             return $this->redirectToRoute('restaurant_show', ['restaurant' => $restaurant->getId()]);
         }
 
+        /**
+         * // Fin de gestion du formulaire Review
+         */
+
+        /**
+         * Par défaut : on renvoie la vue restaurant/show.html.twig avec:
+         * - le restaurant à afficher
+         * - le formulaire d'images formPicture
+         * - le formulaire de review formReview
+         */
         return $this->render('restaurant/show.html.twig', [
             'restaurant' => $restaurant,
-            'picture' => $picture,
-            'formPicture' => $form->createView()
+            'formPicture' => $formPicture->createView(),
+            'formReview' => $formReview->createView()
         ]);
     }
 

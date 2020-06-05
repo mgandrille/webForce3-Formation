@@ -12,17 +12,20 @@
             <h1 class="text-success">{{ restaurant.name }}</h1>
         </div>
         <div class="container">
-            <div class="media">
-                <img src="{{ asset('/uploads/pictures/' ~ picture.filename ) }}" class="mr-3" alt="...">
-                <div class="media-body">
+            <div class="card mb-3">
+                {% for picture in restaurant.restaurantPictures %}
+                    <img src="{{ asset('/uploads/pictures/' ~ picture.filename ) }}" class="card-img-top" widht="50"alt="...">
+                {% endfor %}
+                <div class="card-body">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <span class="font-weight-bold">Moyenne ( / 5 ) :</span>
+                            <span class="font-weight-bold mr-2">Moyenne :</span>
                             {% if restaurant.averageRating is not null %}
                                 {{ restaurant.averageRating | round(1) }}
                             {% else %}
                                 Ce restaurant n'a pas encore de note. Soyez les premiers à laisser un avis !
                             {% endif %}
+                            <span class="font-weight-bold mx-2">  / 5 </span>
                         </li>
                         <li class="list-group-item"><span class="font-weight-bold">Ville : </span><a class="text-success" href="{{ path('city_show', {'id': restaurant.city.id }) }}">{{ restaurant.city.name }}</a></li>
                         <li class="list-group-item">{{ restaurant.description }}</li>
@@ -43,7 +46,19 @@
         </div>
 
         <div class="container mt-5">
-            <h4 class="text-success mb-2">Avis laissés :</h4>
+            <h2>Avis sur le restaurant</h2>
+            <div class="card mb-2">
+                <div class="card-header">
+                    Rédigez un avis sur ce restaurant !
+                </div>
+                <div class="card-body">
+                    {{ form_start(formReview) }}
+                    {{ form_widget(formReview) }}
+                    <button class="btn-sm btn-outline-success float-right">Envoyer</button>
+                    {{ form_end(formReview) }}
+                </div>
+            </div>
+            <h4 class="text-success my-3">Avis laissés :</h4>
             {% for review in restaurant.reviews %}
                 <div class="card mt-2">
                     <div class="card-header"><span class="badge badge-success">{{review.rating}}/5</span></div>
