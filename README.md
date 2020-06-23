@@ -29,12 +29,16 @@ Here you can find all the projects I made during my training course at Web Force
 # Projet Final
 
 During 10 days, by group, we had to create a full web site. My group chose to make a Green Dashbaord... 
+
 Here you can find the repo :
 
 * Pendant 10 jours, en groupe, nous devions créer un site complet. Nous avons choisi de faire un Dashboard Végétal...
-Voici le repo :
+
+Voici le repo : *
+
 
 [Dashboard Végétal](https://github.com/mgandrille/dashboardVegetal)
+
 
 ---
 # Portfolio
