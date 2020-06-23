@@ -32,9 +32,9 @@ During 10 days, by group, we had to create a full web site. My group chose to ma
 
 Here you can find the repo :
 
-* Pendant 10 jours, en groupe, nous devions créer un site complet. Nous avons choisi de faire un Dashboard Végétal... *
+*Pendant 10 jours, en groupe, nous devions créer un site complet. Nous avons choisi de faire un Dashboard Végétal...*
 
-* Voici le repo : *
+*Voici le repo :*
 
 
 [Dashboard Végétal](https://github.com/mgandrille/dashboardVegetal)
