@@ -22,7 +22,19 @@ Here you can find all the projects I made during my training course at Web Force
 - PHP : [Lien vers projets](https://github.com/mgandrille/webForce3-coursPhp)
   * Troisième examen (CRUD basic) : [code](https://github.com/mgandrille/wf3PHPevaluation3) et [visualisation](https://marie-webforce3.000webhostapp.com/exam3/)
   * Quatrième examen (MVC) : [code](https://github.com/mgandrille/wf3PHPevaluation4)
-  
+
+
+---
+
+# Projet Final
+
+During 10 days, by group, we had to create a full web site. My group chose to make a Green Dashbaord... 
+Here you can find the repo :
+
+* Pendant 10 jours, en groupe, nous devions créer un site complet. Nous avons choisi de faire un Dashboard Végétal...
+Voici le repo :
+
+[Dashboard Végétal](https://github.com/mgandrille/dashboardVegetal)
 
 ---
 # Portfolio
